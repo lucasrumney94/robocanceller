@@ -30,7 +30,7 @@ public class BuildingGenerator : MonoBehaviour {
 			spawnPosition.z = i*radius*Mathf.Cos(i*spacing);
 			spawnPosition.y = -Vector3.Distance(centerBuilding.transform.position,spawnPosition) * heightVariance;
 			building = Instantiate(buildingPrefab, spawnPosition, Quaternion.identity) as GameObject;
-
+			building.transform.SetParent(transform);
 			
 
 

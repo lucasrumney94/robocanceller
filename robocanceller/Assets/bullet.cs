@@ -26,4 +26,12 @@ public class bullet : MonoBehaviour {
 		}
 
 	}
+
+	private void OnTriggerEnter(Collider other)
+	{
+		if (other.gameObject.CompareTag("Enemy"))
+		{
+			other.gameObject.SendMessage("damage");
+		}
+	}
 }
