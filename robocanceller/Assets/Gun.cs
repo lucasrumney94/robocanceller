@@ -6,8 +6,9 @@ public class Gun : MonoBehaviour {
 
 	public GameObject bulletPrefab;
 	public GameObject bulletSpawnPoint;
+	public float fireT = 0.2f;
 
-
+	private float lastFireTime;
 	// Use this for initialization
 	void Start () 
 	{
@@ -26,7 +27,11 @@ public class Gun : MonoBehaviour {
 
 	void fire()
 	{
-		Instantiate(bulletPrefab, bulletSpawnPoint.transform.position, bulletSpawnPoint.transform.rotation);
+		if (Time.time-lastFireTime > fireT)
+		{
+			Instantiate(bulletPrefab, bulletSpawnPoint.transform.position, bulletSpawnPoint.transform.rotation);
+			lastFireTime = Time.time;
+		}
 	}
 
 }

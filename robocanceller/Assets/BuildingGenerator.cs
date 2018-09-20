@@ -12,21 +12,27 @@ public class BuildingGenerator : MonoBehaviour {
 
 
 
+
 	private Vector3 spawnPosition;
 	private GameObject building;
 	private GameObject centerBuilding;
+	private Vector3 lookPoint;
 	// Use this for initialization
 	void Start () 
 	{
 
 		centerBuilding = Instantiate(buildingPrefab, Vector3.zero, Quaternion.identity) as GameObject;
+		lookPoint = centerBuilding.transform.position;
 
 		for (int i = 0; i < numberOfBuildings; i++)
 		{
 			spawnPosition.x = i*radius*Mathf.Sin(i*spacing);
 			spawnPosition.z = i*radius*Mathf.Cos(i*spacing);
-			spawnPosition.y = 1/Vector3.Distance(centerBuilding.transform.position,spawnPosition) + Random.Range(-heightVariance, heightVariance);
+			spawnPosition.y = -Vector3.Distance(centerBuilding.transform.position,spawnPosition) * heightVariance;
 			building = Instantiate(buildingPrefab, spawnPosition, Quaternion.identity) as GameObject;
+
+			
+
 
 		}
 	}
