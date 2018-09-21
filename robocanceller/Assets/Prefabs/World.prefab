@@ -141,7 +141,17 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   buildingPrefab: {fileID: 1257542611738466, guid: c33931c09cc4237409535a4ba2594bb6,
     type: 2}
-  numberOfBuildings: 30
-  radius: 5
-  heightVariance: 0.4
-  spacing: 0.809017
+  radii:
+  - 0
+  - 20
+  - 40
+  - 60
+  - 80
+  - 100
+  - 120
+  - 140
+  - 160
+  - 180
+  BuidlingsPerRing: 00000000040000000900000010000000190000002400000031000000400000005100000064000000
+  heightMultiplier: 0.4
+  heightVariance: 0.1
