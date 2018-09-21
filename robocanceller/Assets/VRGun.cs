@@ -38,7 +38,7 @@ public class VRGun : MonoBehaviour {
 	// Update is called once per frame
 	void Update () 
 	{
-		if (Controller.GetHairTrigger())
+		if (Controller.GetHairTriggerDown())
 		{
 			fire();
 		}
@@ -55,6 +55,7 @@ public class VRGun : MonoBehaviour {
 			{
 				Debug.Log("Building is not null, setting CameraRig Position");
 				CameraRig.transform.position = myBuilding.playerTeleportPosition.transform.position;
+				Controller.TriggerHapticPulse(1000);
 			}
 			myLaser.thickness = 0.0f;
 		}
@@ -75,11 +76,13 @@ public class VRGun : MonoBehaviour {
 
 	void fire()
 	{
-		if (Time.time-lastFireTime > fireT)
-		{
+		//if (Time.time-lastFireTime > fireT)
+		//{
 			Instantiate(bulletPrefab, bulletSpawnPoint.transform.position, bulletSpawnPoint.transform.rotation);
+			Controller.TriggerHapticPulse(2000);
+
 			lastFireTime = Time.time;
-		}
+		//}
 	}
 
 }
