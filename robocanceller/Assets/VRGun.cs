@@ -66,12 +66,13 @@ public class VRGun : MonoBehaviour {
 
 	private void HandlePointerIn(object sender, PointerEventArgs e)
     {
-		Debug.Log("Point in event");
+		//Debug.Log("Point in event");
 		myBuilding = e.target.GetComponent<building>();		
     }
 
 	private void HandlePointerOut(object sender, PointerEventArgs e)
     {
+		//Debug.Log("Point out event");
 		myBuilding = null;
 	}
 
