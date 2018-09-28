@@ -55,6 +55,7 @@ public class VRGun : MonoBehaviour {
 			{
 				Debug.Log("Building is not null, setting CameraRig Position");
 				CameraRig.transform.position = myBuilding.playerTeleportPosition.transform.position;
+				CameraRig.transform.rotation = myBuilding.playerTeleportPosition.transform.rotation;
 				Controller.TriggerHapticPulse(1000);
 			}
 			myLaser.thickness = 0.0f;
